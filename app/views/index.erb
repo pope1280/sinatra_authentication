@@ -1,7 +1,8 @@
 <div class="container">
-  <% if @current_user %>  
+  <% if current_user %>  
+    <h1> List of Users: </h1>
     <% @users.each do |user| %>
-      <p><%= @user.name %> </p>
+      <li><%= user.name %></li>
     <% end %>
   <% else %>
     <h1> Welcome! </h1>

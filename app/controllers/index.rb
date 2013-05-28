@@ -1,6 +1,6 @@
 get '/' do
   # render home page
- @users = User.all
+  @users = User.all
   erb :index
 end
 
@@ -15,7 +15,6 @@ post '/sessions' do
   @user = User.authenticate(params[:email], params[:password])
   if @user 
     session[:id] = @user.id
-    # @user
     redirect '/'
   else 
     erb :sign_in
@@ -38,7 +37,7 @@ end
 post '/users' do
   @user = User.create(params[:user])
   if @user.valid?
-    session[:id]= @user.id
+    session[:id] = @user.id
     redirect '/'
   else
     erb :sign_up
